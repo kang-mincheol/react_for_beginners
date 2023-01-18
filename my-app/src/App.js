@@ -4,24 +4,25 @@ function App() {
   const [counter, setValue] = useState(0);
   const [keyword, setKeyword] = useState("");
   const onClick = () => setValue((prev) => prev+1);
-  console.log("i run all the time");
   const onChange = (event) => {
     setKeyword(event.target.value);
   }
 
   useEffect(() => {
-    console.log("i run only once.");
+    console.log("refresh");
   }, []);
 
   useEffect(() => {
-    if(keyword !== "" && keyword.length > 5) {
-      console.log("Search For ", keyword);
-    }
+    console.log("keyword 변경시");
   }, [keyword]);
 
   useEffect(() => {
     console.log("counter 변경시");
   }, [counter])
+
+  useEffect(() => {
+    console.log("counter, keyword 변경시");
+  }, [counter, keyword]);
   return (
     <div>
       <input value={keyword} onChange={onChange} type="text" placeholder="Search here..." />
