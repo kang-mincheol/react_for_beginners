@@ -11,7 +11,7 @@ function App() {
     }
     console.log(toDo);
     setToDo("");
-    setToDos((currentArray) => [toDo, ...currentArray]);
+    setToDos((currentArray) => [...currentArray, toDo]);
   }
   console.log(toDos);
 
@@ -27,6 +27,10 @@ function App() {
         />
         <button>Add To Do</button>
       </form>
+      <hr />
+      {toDos.map((value, index) => (
+        <li key={index}>{value}</li>
+      ))}
     </div>
   );
 }
